@@ -12,9 +12,17 @@ export default function Home() {
   const router = useRouter();
   const [name, setName] = useState('');
 
+  const goToNextPage = () => {
+    if (name.trim() === '') {
+      return;
+    }
+
+    router.push(`/chatRoom?id=${uuidv4()}&name=${name.trim()}`);
+  }
+
   const handleClick = useCallback((e: any) => {
     e.preventDefault()
-    router.push(`/chatRoom?id=${uuidv4()}&name=${name}`);
+    goToNextPage()
   }, [name])
 
   const handleTextChange = useCallback((e: any) => {
@@ -25,8 +33,7 @@ export default function Home() {
   const handleKeyDown = useCallback((e: any) => {
     if(e.keyCode === 13 && !e.shiftKey){
       e.preventDefault();
-
-      router.push(`/chatRoom?id=${uuidv4()}&name=${name}`);
+      goToNextPage()
     }
   }, [name])
 
