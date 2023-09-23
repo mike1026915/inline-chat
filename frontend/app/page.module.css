@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3rem;
+  align-items: start;
+  padding: 6rem;
+  min-height: 100vh;
+  background: var(--primary-glow);
+}
