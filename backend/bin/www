@@ -49,10 +49,6 @@ io.on('connection', (socket) => {
       message: `Welcome ${name} to join`,
     });
 
-    io.emit('updateInfo', {
-      userNumber: Object.values(name).length,
-    })
-
     users[id] = name;
   });
 
@@ -60,7 +56,7 @@ io.on('connection', (socket) => {
     delete users[id];
 
     io.emit('serverMessageBroadcasst', {
-      message: `${name} eixts`,
+      message: `${name} exits`,
     });
   });
 

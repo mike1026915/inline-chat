@@ -22,11 +22,20 @@ export default function Home() {
     setName(value);
   }, [setName])
 
+  const handleKeyDown = useCallback((e: any) => {
+    if(e.keyCode === 13 && !e.shiftKey){
+      e.preventDefault();
+
+      router.push(`/chatRoom?id=${uuidv4()}&name=${name}`);
+    }
+  }, [name])
+
+
   return (
     <main className={styles.main}>
       <h1> Welcome to Mike's Chat Room </h1>
       <h3> Please enter your name </h3>
-      <TextField id="name" label="Name" variant="standard" color="primary" focused value={name} onChange={handleTextChange} />
+      <TextField id="name" label="Name" variant="standard" color="primary" focused value={name} onChange={handleTextChange} onKeyDown={handleKeyDown} />
       <Button variant="contained" onClick={handleClick}>Enter</Button>
     </main>
   )

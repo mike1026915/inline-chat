@@ -47,7 +47,7 @@ export default function ChatRoom(props: Props) {
   }
 
   useEffect(() => {
-    socket.current = io('http://localhost:5000',
+    socket.current = io('http://ec2-43-207-90-96.ap-northeast-1.compute.amazonaws.com:5000',
       {
         transports: ['websocket'],
       }
@@ -113,7 +113,7 @@ export default function ChatRoom(props: Props) {
               return (
                 <div key={`message_${index}`} className={styles.tag_other}>
                   <div>
-                    {`${receivedMessage.name} says: ${receivedMessage.message}`}
+                    {`${receivedMessage.name}: ${receivedMessage.message}`}
                   </div>
                 </div>
               )
