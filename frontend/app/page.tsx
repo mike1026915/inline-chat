@@ -35,7 +35,7 @@ export default function Home() {
     <main className={styles.main}>
       <h1> Welcome to Mike's Chat Room </h1>
       <h3> Please enter your name </h3>
-      <TextField id="name" label="Name" variant="standard" color="primary" focused value={name} onChange={handleTextChange} onKeyDown={handleKeyDown} />
+      <TextField id="name" label="Name" variant="standard" color="primary" focused autoFocus value={name} onChange={handleTextChange} onKeyDown={handleKeyDown} />
       <Button variant="contained" onClick={handleClick}>Enter</Button>
     </main>
   )

@@ -136,6 +136,7 @@ export default function ChatRoom(props: Props) {
           variant="standard"
           color="primary"
           focused
+          autoFocus
           multiline
           fullWidth
           value={message}
