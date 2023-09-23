@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import { io, Socket } from 'socket.io-client';
 import moment from 'moment';
 
@@ -25,8 +25,9 @@ interface ReceivedMessage {
 }
 
 export default function ChatRoom(props: Props) {
-  const { searchParams } = props;
-  const { name, id } = searchParams;
+  const searchParams = useSearchParams()
+  const name = searchParams.get('name') || '';
+  const id = searchParams.get('id') || '';
   const [message, setMessage] = useState('');
   const [receivedMessages, setReceivedMessages] = useState([]);
   const socket = useRef<Socket>();
